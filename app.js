@@ -48,6 +48,13 @@ const grossSalary = (dataExcel) => {
     console.log(`Total gross annual salaries is: ${totalGrossSalary} €`)
 }
 
+const employeesList = (dataExcel) => {
+    for (let dataEmployeesList of dataExcel){
+        if(dataEmployeesList['salario bruto anual'] > 28000 && dataEmployeesList['ID Empresa'] == 2){
+            console.log(`${dataEmployeesList['id empleado']}, ${dataEmployeesList['nombre']}, ${dataEmployeesList['apellido1']} ${dataEmployeesList['apellido2']}, ${dataEmployeesList['salario bruto anual']}, ${dataEmployeesList['Nombre empresa']}`)
+        }
+    }
+}
 //Script
 console.log();
 console.log('Technical testing');
@@ -63,8 +70,11 @@ if (readingExcelFile(path) != null) {
     console.log('2.- Gross annual salaries of the employees of Equilibra IT and the work center CT2 (Alovera)')
     grossSalary(readingExcelFile(path))
     console.log();
-}
-else {
+}if(readingExcelFile(path) != null){
+    console.log('3.- List of employees who earn more than 28,000 euros and belong to Equilibra RRHH.')
+    employeesList(readingExcelFile(path))
+    console.log();
+}else {
     console.log();
     console.log(finalText);
 };
