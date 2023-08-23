@@ -48,6 +48,7 @@ const grossSalary = (dataExcel) => {
     console.log(`Total gross annual salaries is: ${totalGrossSalary} €`)
 }
 
+//List of employees who earn more than 28,000€ and belong to Equilibra RRHH.
 const employeesList = (dataExcel) => {
     for (let dataEmployeesList of dataExcel){
         if(dataEmployeesList['salario bruto anual'] > 28000 && dataEmployeesList['ID Empresa'] == 2){
@@ -55,6 +56,7 @@ const employeesList = (dataExcel) => {
         }
     }
 }
+
 //Script
 console.log();
 console.log('Technical testing');
@@ -71,7 +73,7 @@ if (readingExcelFile(path) != null) {
     grossSalary(readingExcelFile(path))
     console.log();
 }if(readingExcelFile(path) != null){
-    console.log('3.- List of employees who earn more than 28,000 euros and belong to Equilibra RRHH.')
+    console.log('3.- List of employees who earn more than 28,000€ and belong to Equilibra RRHH.')
     employeesList(readingExcelFile(path))
     console.log();
 }else {
