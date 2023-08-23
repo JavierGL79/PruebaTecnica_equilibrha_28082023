@@ -22,11 +22,11 @@ const sexCounter = (dataExcel) => {
     let sexH = 0;
     let sexM = 0;
     try {
-        for (let sexCounter of dataExcel){
+        for (let dataSex of dataExcel){
             employeesCounter++;
-            if(sexCounter['sexo'] == 'M'){
+            if(dataSex['sexo'] == 'M'){
                 sexM++;
-            }else if(sexCounter['sexo'] == 'H'){
+            }else if(dataSex['sexo'] == 'H'){
                 sexH++;
             }
         }
@@ -36,6 +36,16 @@ const sexCounter = (dataExcel) => {
         console.log(error);
         return null;
     }
+}
+//Gross annual salaries of the employees
+const grossSalary = (dataExcel) => {
+    let totalGrossSalary = 0;
+    for (let dataSalary of dataExcel){
+        if(dataSalary['ID Empresa'] == 1){
+            totalGrossSalary += dataSalary['salario bruto anual']
+        }
+    }
+    console.log(`Total gross annual salaries is: ${totalGrossSalary} €`)
 }
 
 //Script
@@ -50,7 +60,7 @@ if (readingExcelFile(path) != null) {
     sexCounter(readingExcelFile(path))
     console.log();
 }if(readingExcelFile(path) != null){
-    console.log('1.- How many men and women are there of the total number of employees')
+    console.log('2.- Gross annual salaries of the employees of Equilibra IT and the work center CT2 (Alovera)')
     grossSalary(readingExcelFile(path))
     console.log();
 }
