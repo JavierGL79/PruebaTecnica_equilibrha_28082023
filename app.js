@@ -1,20 +1,22 @@
 const xlsx = require('xlsx')
 const path = 'datos_prueba_tecnica.xlsx'
 const finalText = 'END OF SCRIPT'
-const dataExcel = (path) => readingExcelFile(path)
+
 //Function that reads and saving data in json format from an xlsx file.
 const readingExcelFile = (path) => {
     try {
         const workBook = xlsx.readFile(path);
         const dataExcel = xlsx.utils.sheet_to_json(workBook.Sheets[workBook.SheetNames[0]]);
-
+        
         return dataExcel
-
+        
     } catch (error) {
         console.log(error)
         return null
     }
 }
+
+const dataExcel = readingExcelFile(path)
 
 //Function showing men and women of the total number of employees
 const sexCounter = (dataExcel) => {
@@ -61,20 +63,20 @@ const employeesList = (dataExcel) => {
 console.log();
 console.log('Technical testing');
 console.log('... ...');
-if (readingExcelFile(path) != null) {
+if (dataExcel != null) {
     console.log('Successfully saving data in dataExcel');
     console.log();
-}if(readingExcelFile(path) != null){
+
     console.log('1.- How many men and women are there of the total number of employees')
-    sexCounter(readingExcelFile(path))
+    sexCounter(dataExcel)
     console.log();
-}if(readingExcelFile(path) != null){
+
     console.log('2.- Gross annual salaries of the employees of Equilibra IT and the work center CT2 (Alovera)')
-    grossSalary(readingExcelFile(path))
+    grossSalary(dataExcel)
     console.log();
-}if(readingExcelFile(path) != null){
+
     console.log('3.- List of employees who earn more than 28,000€ and belong to Equilibra RRHH.')
-    employeesList(readingExcelFile(path))
+    employeesList(dataExcel)
     console.log();
 }else {
     console.log();
