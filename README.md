@@ -10,6 +10,7 @@ Debería indicar la versión de node instalada.
     ```sh
     node -v
     ```
+    
 ### Instalar dependencias
 En la terminal, accede a la carpeta donde esté descargado el proyecto. Una vez dentro: 
 
@@ -17,7 +18,7 @@ En la terminal, accede a la carpeta donde esté descargado el proyecto. Una vez 
 npm install
 ```
 
-Se instalarán las dependencias necesarias para la ejecución del script
+Se instalarán las dependencias necesarias para la ejecución del script.
 
 ### Iniciar el programa
 
